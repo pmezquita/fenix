@@ -1,4 +1,6 @@
 import 'package:fenix/presentation/pages/grafica_distrito/grafica_distrito_provider.dart';
+import 'package:fenix/presentation/pages/grafica_distrito/widgets/grafico.dart';
+import 'package:fenix/presentation/pages/grafica_distrito/widgets/msg.dart';
 import 'package:fenix/presentation/shared/drawer/drawer.dart';
 import 'package:fenix/presentation/shared/sliver_app_bar/sliver_appbar.dart';
 import 'package:flutter/material.dart';
@@ -26,33 +28,14 @@ class GraficaDistrito extends ConsumerWidget {
             delegate: SliverChildListDelegate(
               resultados.when(
                 data: (data) {
-                  if (data == null) {
-                    return [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Error descargando resultados',
-                          style: Theme.of(context).textTheme.labelSmall,
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    ];
-                  }
-                  if (data.isEmpty) {
-                    return [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Sin resultados',
-                          style: Theme.of(context).textTheme.labelSmall,
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    ];
-                  }
-                  return [const Placeholder()];
+                  if (data == null) return [const Msg(msg: 'Error descargando resultados')];
+                  if (data.isEmpty) return [const Msg(msg: 'Sin resultados')];
+
+                  return [
+                    Grafico(data),
+                  ];
                 },
-                error: (error, stackTrace) => [const Text('Error.')],
+                error: (error, stackTrace) => [Msg(msg: error.toString())],
                 loading: () => [const MyProgressIndicator()],
               ),
             ),
