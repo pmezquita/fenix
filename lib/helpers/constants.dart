@@ -38,4 +38,4 @@ final DateTime fechaFinApp = DateTime.now().add(const Duration(days: 60));
 final Uri urlAPK = Uri.parse('https://play.google.com/store/apps/details?id=com.app_soft.cam.f.ayun_cam');
 
 
-const int permisoVerResultDistritos = 0;
+const int permisoVerGraficaDistritos = 0;

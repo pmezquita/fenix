@@ -1,3 +1,4 @@
+import 'package:fenix/presentation/pages/grafica_distrito/grafica_distrito.dart';
 import 'package:fenix/presentation/pages/home/home_page.dart';
 import 'package:fenix/presentation/pages/login/login_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,6 +15,11 @@ final appRouterProvider = Provider<GoRouter>((ref) => GoRouter(
           path: '/home',
           name: 'home',
           builder: (context, state) => const HomePage(),
+        ),
+        GoRoute(
+          path: '/grafica-distritos',
+          name: 'graficaDistritos',
+          builder: (context, state) => const GraficaDistrito(),
         ),
       ],
     ));

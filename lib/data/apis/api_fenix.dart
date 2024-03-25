@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fenix/domain/entities/usuarios.dart';
 import 'package:fenix/domain/entities/versiones_model.dart';
+import 'package:fenix/domain/models/result_api_grafica_distritos.dart';
 import 'package:fenix/domain/models/result_api_validate_token_user.dart';
 import 'package:flutter/foundation.dart';
 
@@ -73,5 +74,28 @@ class ApiFenix {
       }
       return null;
     }
+  }
+
+  static Future<List<ResultGraficaDistritos>?> getResultGraficaDistritos() async {
+    return [
+      ResultGraficaDistritos(id: 1, distrito: '1', esperado: 100, existente: 10),
+      ResultGraficaDistritos(id: 2, distrito: '2', esperado: 200, existente: 20),
+    ];
+
+    // const endpoint = 'GetGraficaDistritos';
+    // final queryParams = {
+    //   'apiKey': apiKey,
+    // };
+    // final dio = Dio();
+    //
+    // try {
+    //   final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
+    //   return resultGraficaDistritosFromMap(response.data);
+    // } on DioException catch (e) {
+    //   if (kDebugMode) {
+    //     print(e.message);
+    //   }
+    //   return null;
+    // }
   }
 }

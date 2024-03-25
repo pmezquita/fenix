@@ -1,4 +1,5 @@
 import 'package:fenix/core/theme/main_theme.dart';
+import 'package:fenix/helpers/constants.dart';
 import 'package:fenix/presentation/providers/usuario_logged_provider.dart';
 import 'package:fenix/presentation/shared/alertdialog_about.dart';
 import 'package:fenix/presentation/shared/drawer/custom_drawer_list_tile.dart';
@@ -30,6 +31,16 @@ class CustomDrawer extends ConsumerWidget {
                 context.pushNamed('home');
               },
             ),
+            ref.read(checkPermisoUserProvider(permisoVerGraficaDistritos))
+                ? CustomListTile(
+                    icon: const Icon(Icons.bar_chart),
+                    title: 'Distritos',
+                    onTap: () {
+                      context.replaceNamed('home');
+                      context.pushNamed('graficaDistritos');
+                    },
+                  )
+                : const SizedBox.shrink(),
             CustomListTile(
               icon: const Icon(Icons.info),
               title: 'Acerca de...',
