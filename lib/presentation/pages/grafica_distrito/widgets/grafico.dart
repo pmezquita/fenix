@@ -20,13 +20,17 @@ class Grafico extends ConsumerWidget {
           // Renders column chart
           BarSeries<ResultGraficaDistritos, String>(
               color: primaryLight,
-              name: 'Existente',
+              name: 'Actual',
+              dataLabelMapper: (ResultGraficaDistritos data, _) => data.existente.toString(),
+              dataLabelSettings: const DataLabelSettings(isVisible: true),
               dataSource: data,
               xValueMapper: (ResultGraficaDistritos data, _) => data.distrito,
               yValueMapper: (ResultGraficaDistritos data, _) => data.existente),
           BarSeries<ResultGraficaDistritos, String>(
               color: secondary,
-              name: 'Esperado',
+              name: 'Estimado',
+              dataLabelMapper: (ResultGraficaDistritos data, _) => data.esperado.toString(),
+              dataLabelSettings: const DataLabelSettings(isVisible: true),
               dataSource: data,
               xValueMapper: (ResultGraficaDistritos data, _) => data.distrito,
               yValueMapper: (ResultGraficaDistritos data, _) => data.esperado),

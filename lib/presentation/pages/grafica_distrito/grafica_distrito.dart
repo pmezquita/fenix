@@ -14,9 +14,14 @@ class GraficaDistrito extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final resultados = ref.watch(resultadosDistritoProvider);
+    final event = ref.read(resultadosDistritoProvider.notifier);
 
     return Scaffold(
       drawer: const CustomDrawer(),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.refresh),
+        onPressed: () => event.reload(),
+      ),
       body: CustomScrollView(
         slivers: <Widget>[
           const CustomSliverAppBar(

@@ -24,14 +24,14 @@ class Usuario {
   });
 
   factory Usuario.fromJson(Map<String, dynamic> json) => Usuario(
-        usuarioid: json["id"],
-        username: json["username"],
-        password: json["password"],
-        fullname: json["fullname"],
-        estatus: json["estatus"],
-        tipoPermiso: json["tipo_Permiso"],
-        permiso: json["permiso"],
-        token: json["token"],
+        usuarioid: json["USUARIOID"],
+        username: json["USERNAME"],
+        password: json["PASSWORD"],
+        fullname: json["FULLNAME"],
+        estatus: json["ESTATUS"],
+        tipoPermiso: json["TIPO_PERMISO"],
+        permiso: json["PERMISO"],
+        token: json["TOKEN"],
       );
 
   Map<String, dynamic> toJson() => {
