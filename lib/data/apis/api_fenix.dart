@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:fenix/domain/entities/usuarios.dart';
 import 'package:fenix/domain/entities/versiones_model.dart';
@@ -67,7 +69,7 @@ class ApiFenix {
 
     try {
       final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
-      return usuariosFromMap(response.data);
+      return usuariosFromMap(jsonDecode(response.data));
     } on DioException catch (e) {
       if (kDebugMode) {
         print(e.message);
@@ -85,7 +87,7 @@ class ApiFenix {
 
     try {
       final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
-      return resultGraficaDistritosFromMap(response.data);
+      return resultGraficaDistritosFromMap(jsonDecode(response.data));
     } on DioException catch (e) {
       if (kDebugMode) {
         print(e.message);
