@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:fenix/domain/entities/usuarios.dart';
 import 'package:fenix/domain/entities/versiones_model.dart';
@@ -15,7 +13,7 @@ class ApiFenix {
   // Producción
   static const String _apiHost = "sysfenix24.ddns.net";
   static const int _apiPort = 3873;
-  static const String _prefix = "/WServiceFenix.asmx/";
+  static const String _prefix = "/APP/";
   static const baseUrl = '$_apiScheme://$_apiHost:$_apiPort$_prefix';
   static const apiKey = '5z1W5ZHuyw1BuQIG395n2wN0IHmXCI89fCP8CnEyEmnoheKkMv';
 
@@ -69,7 +67,7 @@ class ApiFenix {
 
     try {
       final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
-      return usuariosFromMap(jsonDecode(response.data));
+      return usuariosFromMap(response.data);
     } on DioException catch (e) {
       if (kDebugMode) {
         print(e.message);
@@ -87,7 +85,7 @@ class ApiFenix {
 
     try {
       final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
-      return resultGraficaDistritosFromMap(jsonDecode(response.data));
+      return resultGraficaDistritosFromMap(response.data);
     } on DioException catch (e) {
       if (kDebugMode) {
         print(e.message);
