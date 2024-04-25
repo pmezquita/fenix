@@ -76,8 +76,30 @@ class ApiFenix {
     }
   }
 
-  static Future<List<ResultGraficaDistritos>?> getResultGraficaDistritos() async {
+  static Future<List<ResultGraficaDistritos>?> getResultGraficaDistritos(bool usarPersonasMC) async {
+    return usarPersonasMC ? _getResultGraficaDistritosMC() : _getResultGraficaDistritos();
+  }
+
+  static Future<List<ResultGraficaDistritos>?> _getResultGraficaDistritos() async {
     const endpoint = 'Get_Graficos_Distritos';
+    final queryParams = {
+      'apiKey': apiKey,
+    };
+    final dio = Dio();
+
+    try {
+      final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
+      return resultGraficaDistritosFromMap(response.data);
+    } on DioException catch (e) {
+      if (kDebugMode) {
+        print(e.message);
+      }
+      return null;
+    }
+  }
+
+  static Future<List<ResultGraficaDistritos>?> _getResultGraficaDistritosMC() async {
+    const endpoint = 'Get_Graficos_Distritos_MC';
     final queryParams = {
       'apiKey': apiKey,
     };
