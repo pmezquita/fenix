@@ -33,13 +33,23 @@ class CustomDrawer extends ConsumerWidget {
             ),
             ref.read(checkPermisoUserProvider(permisoVerGraficaDistritos))
                 ? CustomListTile(
-                    icon: const Icon(Icons.bar_chart),
-                    title: 'Distritos',
+                    icon: const Icon(Icons.record_voice_over),
+                    title: 'Entrevistados',
                     onTap: () {
                       context.replaceNamed('home');
                       context.pushNamed('graficaDistritos');
                     },
                   )
+                : const SizedBox.shrink(),
+            ref.read(checkPermisoUserProvider(permisoVerGraficaDistritos))
+                ? CustomListTile(
+              icon: const Icon(Icons.checklist),
+              title: 'Afinidades',
+              onTap: () {
+                context.replaceNamed('home');
+                context.pushNamed('graficaAfinidad');
+              },
+            )
                 : const SizedBox.shrink(),
             CustomListTile(
               icon: const Icon(Icons.info),

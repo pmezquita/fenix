@@ -17,3 +17,5 @@ final Uri urlAPK = Uri.parse('https://play.google.com/store/apps/details?id=com.
 
 const int permisoVerGraficaDistritos = 0;
 const int permisoUsarPersonaMC = 2;
+
+const List<int> distritos = [0, 1, 2, 3, 4, 5, 6, 7];

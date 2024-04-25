@@ -1,6 +1,6 @@
 import 'package:fenix/presentation/pages/grafica_distrito/grafica_distrito_provider.dart';
 import 'package:fenix/presentation/pages/grafica_distrito/widgets/grafico.dart';
-import 'package:fenix/presentation/pages/grafica_distrito/widgets/msg.dart';
+import 'package:fenix/presentation/shared/msg.dart';
 import 'package:fenix/presentation/shared/drawer/drawer.dart';
 import 'package:fenix/presentation/shared/sliver_app_bar/sliver_appbar.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class GraficaDistrito extends ConsumerWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           const CustomSliverAppBar(
-            text1: 'Distritos',
+            text1: 'Entrevistados',
             sameLine: true,
             isPrimary: true,
           ),

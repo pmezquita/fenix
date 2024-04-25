@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fenix/domain/entities/usuarios.dart';
 import 'package:fenix/domain/entities/versiones_model.dart';
+import 'package:fenix/domain/models/result_api_grafica_afinidad.dart';
 import 'package:fenix/domain/models/result_api_grafica_distritos.dart';
 import 'package:fenix/domain/models/result_api_validate_token_user.dart';
 import 'package:flutter/foundation.dart';
@@ -108,6 +109,51 @@ class ApiFenix {
     try {
       final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
       return resultGraficaDistritosFromMap(response.data);
+    } on DioException catch (e) {
+      if (kDebugMode) {
+        print(e.message);
+      }
+      return null;
+    }
+  }
+
+  static Future<ResultGraficaAfinidad?> getResultGraficaAfinidad({
+    required bool usarPersonasMC,
+    required int distrito,
+  }) async {
+    return usarPersonasMC ? _getResultGraficaAfinidadMC(distrito) : _getResultGraficaAfinidad(distrito);
+  }
+
+  static Future<ResultGraficaAfinidad?> _getResultGraficaAfinidad(int distrito) async {
+    const endpoint = 'Get_Graficos_Distrito_Afinidad';
+    final queryParams = {
+      'apiKey': apiKey,
+      'distrito': distrito,
+    };
+    final dio = Dio();
+
+    try {
+      final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
+      return resultGraficaAfinidadFromMap(response.data).firstOrNull;
+    } on DioException catch (e) {
+      if (kDebugMode) {
+        print(e.message);
+      }
+      return null;
+    }
+  }
+
+  static Future<ResultGraficaAfinidad?> _getResultGraficaAfinidadMC(int distrito) async {
+    const endpoint = 'Get_Graficos_Afinidad_Distrito_MC';
+    final queryParams = {
+      'apiKey': apiKey,
+      'distrito': distrito,
+    };
+    final dio = Dio();
+
+    try {
+      final response = await dio.get('$baseUrl$endpoint', queryParameters: queryParams);
+      return resultGraficaAfinidadFromMap(response.data).firstOrNull;
     } on DioException catch (e) {
       if (kDebugMode) {
         print(e.message);
