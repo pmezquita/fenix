@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../helpers/utils.dart';
 
 class DialogObsoleteVersion extends StatelessWidget {
-  const DialogObsoleteVersion({Key? key}) : super(key: key);
+  const DialogObsoleteVersion({super.key});
 
   @override
   Widget build(BuildContext context) {

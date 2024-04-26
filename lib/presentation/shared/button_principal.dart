@@ -8,12 +8,12 @@ class ButtonPrincipal extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ButtonPrincipal({
-    Key? key,
+    super.key,
     required this.text,
     this.isPrimary = true,
     this.icon,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

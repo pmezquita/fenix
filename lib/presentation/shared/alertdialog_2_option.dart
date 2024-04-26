@@ -11,14 +11,14 @@ class AlertDialog2Opt extends StatelessWidget {
   final VoidCallback? onPressedOptSi;
 
   const AlertDialog2Opt({
-    Key? key,
+    super.key,
     required this.title,
     required this.content,
     this.textOptSi = 'Sí',
     this.textOptNo = 'No',
     this.onPressedOptNo,
     this.onPressedOptSi,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

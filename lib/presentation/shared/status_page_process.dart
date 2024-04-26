@@ -8,7 +8,7 @@ import '../../core/theme/main_theme.dart';
 class StatusPageProcess extends ConsumerWidget {
   final StatusPage statusPage;
 
-  const StatusPageProcess({required this.statusPage, Key? key}) : super(key: key);
+  const StatusPageProcess({required this.statusPage, super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

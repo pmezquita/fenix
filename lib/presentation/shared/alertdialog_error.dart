@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AlertDialogError extends StatelessWidget {
   final String msg;
 
-  const AlertDialogError({Key? key, required this.msg}) : super(key: key);
+  const AlertDialogError({super.key, required this.msg});
 
   @override
   Widget build(BuildContext context) {

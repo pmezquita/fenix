@@ -5,7 +5,7 @@ import '../../../core/theme/main_theme.dart';
 class FondoContent extends StatelessWidget {
   final String text1, text2;
 
-  const FondoContent({Key? key, required this.text1, required this.text2}) : super(key: key);
+  const FondoContent({super.key, required this.text1, required this.text2});
 
   @override
   Widget build(BuildContext context) {

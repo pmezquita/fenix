@@ -12,7 +12,7 @@ class Apartado extends ConsumerWidget {
   final bool initiallyExpanded;
 
   const Apartado({
-    Key? key,
+    super.key,
     required this.title,
     required this.children,
     this.numApartado,
@@ -20,7 +20,7 @@ class Apartado extends ConsumerWidget {
     this.subtitle,
     this.hasError = false,
     this.initiallyExpanded = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

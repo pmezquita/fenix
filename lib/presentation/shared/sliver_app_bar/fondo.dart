@@ -11,14 +11,13 @@ class Fondo extends StatelessWidget {
   final double maxHeight;
 
   const Fondo._base(
-      {Key? key,
+      {super.key,
       required this.color1,
       required this.color2,
       required this.color3,
       required this.maxHeight,
       this.text1 = '',
-      this.text2 = ''})
-      : super(key: key);
+      this.text2 = ''});
 
   const Fondo.login({
     Key? key,

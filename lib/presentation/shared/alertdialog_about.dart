@@ -5,7 +5,7 @@ import 'package:fenix/presentation/shared/label_version.dart';
 import '../../core/theme/main_theme.dart';
 
 class AlertDialogAbout extends StatelessWidget {
-  const AlertDialogAbout({Key? key}) : super(key: key);
+  const AlertDialogAbout({super.key});
 
   @override
   Widget build(BuildContext context) {

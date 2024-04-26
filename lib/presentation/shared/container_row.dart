@@ -4,10 +4,10 @@ class ContainerRow extends StatelessWidget {
   final Widget left, right;
 
   const ContainerRow({
-    Key? key,
+    super.key,
     required this.left,
     required this.right,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

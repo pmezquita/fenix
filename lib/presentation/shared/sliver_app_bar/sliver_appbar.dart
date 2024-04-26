@@ -10,8 +10,7 @@ class CustomSliverAppBar extends ConsumerWidget {
   final String? text2;
   final bool sameLine;
 
-  const CustomSliverAppBar({Key? key, this.isPrimary = true, this.sameLine = true, required this.text1, this.text2})
-      : super(key: key);
+  const CustomSliverAppBar({super.key, this.isPrimary = true, this.sameLine = true, required this.text1, this.text2});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
