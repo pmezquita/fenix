@@ -16,7 +16,7 @@ class Grafico extends ConsumerWidget {
     
     return SfCartesianChart(
         primaryXAxis: const CategoryAxis(title: AxisTitle(text: 'Candidatura')),
-        primaryYAxis: const NumericAxis(),
+        primaryYAxis: const NumericAxis(minimum: 0),
         tooltipBehavior: TooltipBehavior(enable: true),
         legend: const Legend(isVisible: true),
         series: <CartesianSeries<GraficoAfinidadDataSource, String>>[

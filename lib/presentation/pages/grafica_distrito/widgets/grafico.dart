@@ -13,7 +13,7 @@ class Grafico extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return SfCartesianChart(
         primaryXAxis: const CategoryAxis(title: AxisTitle(text: 'Distritos')),
-        primaryYAxis: const NumericAxis(),
+        primaryYAxis: const NumericAxis(minimum: 0),
         tooltipBehavior: TooltipBehavior(enable: true),
         legend: const Legend(isVisible: true),
         series: <CartesianSeries<ResultGraficaDistritos, String>>[
